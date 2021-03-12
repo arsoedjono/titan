@@ -1,0 +1,8 @@
+#!/bin/bash
+# list all self-made scripts
+
+dir=$(dirname $0)
+
+for entry in $(ls -p "$dir" | grep -v /); do
+  echo "$(basename "$entry")  --  $(sed -n -e 2p $dir/$entry | cut -c 3-)"
+done
