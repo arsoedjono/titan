@@ -1,0 +1,19 @@
+name: Validate README Content
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  rspec:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+      - uses: actions/setup-ruby@master
+        with:
+          ruby-version: 2.5
+      - run: gem install bundler
+      - run: bundle install
+      - run: bundle exec rspec

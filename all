@@ -2,7 +2,8 @@
 # list all self-made scripts
 
 dir=$(dirname $0)
+exclude="/\|Gemfile*\|README.md"
 
-for entry in $(ls -p "$dir" | grep -v /); do
+for entry in $(ls -p "$dir" | grep -v "$exclude"); do
   echo "$(basename "$entry")  --  $(sed -n -e 2p $dir/$entry | cut -c 3-)"
 done
