@@ -1,0 +1,4 @@
+#!/bin/bash
+# get active git branch
+
+git status | head -1 | awk '{print $3}'
