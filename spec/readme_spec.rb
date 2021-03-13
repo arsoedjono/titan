@@ -5,7 +5,7 @@ RSpec.describe 'README.md' do
 
   describe 'should contain ./all output' do
     let(:all_output) { `./all`.strip }
-    let(:readme_all_content) { subject.scan(/```\n(.*)\n```/).first.first }
+    let(:readme_all_content) { subject.scan(/```\n(.*)\n```/m).first.first }
 
     it { expect(readme_all_content).to match(all_output) }
   end
