@@ -1,0 +1,18 @@
+#!/bin/bash
+# create branch and generate branch name
+
+default_jira_project="JIRAKEY" # input default JIRA project key here
+read -p "JIRA project ($default_jira_project): " jira_project
+jira_project=${jira_project:-$default_jira_project}
+jira_project=$(echo $jira_project | tr a-z A-Z)
+
+read -p "JIRA key: " jira_key
+jira_key=$(echo $jira_key | tr "-" "_" | tr " " "-" | tr a-z A-Z)
+
+read -p "Branch name: " branch_name
+branch_name=$(echo $branch_name | tr "-" "_" | tr " " "_" | tr A-Z a-z)
+
+branch="$jira_project/$jira_key-$branch_name"
+echo "Generated branch name: $branch"
+
+git checkout -b $branch
