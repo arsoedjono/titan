@@ -1,0 +1,18 @@
+#!/bin/bash
+# git checkout sequence of commands
+
+if [ -z "$1" ]; then
+  echo "Usage: $(basename $0) <branch_name>"
+  exit
+fi
+
+echo "cleaning repo..."
+git reset --hard
+git clean -fd
+
+echo "checking out to branch '$1'..."
+git checkout master
+git fetch origin $1
+git checkout $1
+
+echo "done"
