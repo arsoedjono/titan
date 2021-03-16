@@ -1,0 +1,9 @@
+#!/bin/bash
+# clean git repository branches
+
+default_branch="main"
+
+git checkout $default_branch
+git pull origin $default_branch
+git branch --merged | egrep -v "(^\*|$default_branch)" | xargs git branch -d
+git checkout -q $default_branch && git for-each-ref refs/heads/ "--format=%(refname:short)" | while read branch; do mergeBase=$(git merge-base $default_branch $branch) && [[ $(git cherry $default_branch $(git commit-tree $(git rev-parse $branch^{tree}) -p $mergeBase -m _)) == "-"* ]] && git branch -D $branch; done
