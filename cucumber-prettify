@@ -1,0 +1,6 @@
+#!/bin/bash
+# run cucumber and open the report in pretty format
+
+rm report.json report.html
+cucumber $* --format pretty --format json --out report.json --format html --out report.html
+open -a "Google Chrome" report.html

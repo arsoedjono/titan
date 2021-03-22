@@ -4,6 +4,7 @@ This is simply the run result of `all` script in this repo
 
 ```
 all  --  list all self-made scripts
+cucumber-prettify  --  run cucumber and open the report in pretty format
 git-active-branch  --  get active git branch
 git-checkout-branch  --  git checkout sequence of commands
 git-clean-branch  --  clean git repository branches
