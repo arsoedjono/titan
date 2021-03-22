@@ -1,0 +1,19 @@
+#!/bin/bash
+# go to directory
+
+helpstr=$(cat << EOM
+Usage: . goto <keyword>
+
+Keywords:
+  example  --  put your keyword and destination description here
+EOM
+)
+
+if [ -z "$1" ]; then
+  echo "$helpstr"
+else
+  case "$1" in
+    home)  cd $HOME
+    *)     echo "$helpstr" ;;
+  esac
+fi

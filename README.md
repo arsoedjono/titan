@@ -9,6 +9,7 @@ git-active-branch  --  get active git branch
 git-checkout-branch  --  git checkout sequence of commands
 git-clean-branch  --  clean git repository branches
 git-create-branch  --  create branch and generate branch name
+goto  --  go to directory
 ```
 
 ## Usage
