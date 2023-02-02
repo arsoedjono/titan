@@ -11,6 +11,7 @@ List of your custom scripts:
   git-clean-branch  --  clean git repository branches
   git-create-branch  --  create branch and generate branch name
   goto  --  go to directory
+  sync-folder  --  sync folder content (two-ways)
 ```
 
 ## Usage

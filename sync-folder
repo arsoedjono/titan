@@ -1,0 +1,12 @@
+#!/bin/bash
+# sync folder content (two-ways)
+
+DIR1="/path/to/folder"
+DIR2="/another/path/to/folder"
+
+read -p "Is it from or to $DIR1? (f/t) " ft
+case $ft in
+  [Ff]* )  rsync -avu --delete "$DIR1/" "$DIR2";;
+  [Tt]* )  rsync -avu --delete "$DIR2/" "$DIR1";;
+  * )      echo "Wrong input. Terminating."
+esac
